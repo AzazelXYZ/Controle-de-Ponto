@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Animação de rotação contínua */
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+}
+
+/* Fundo animado com partículas */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  z-index: -1;
+}
+
+body {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.6em;
+  /* Vários níveis de sombra para efeito de brilho */
+  text-shadow:
+    0 0 5px #00ffccee,
+    0 0 10px #00ffcc3f,
+    0 0 20px #00ffcc4b;
+  letter-spacing: 0.05em; /* Espaçamento entre letras */
+  user-select: none; /* Impede seleção do texto */
+  transition: color 0.4s ease; /* Transição suave para mudança de cor */
+}
+h1:hover {
+  color: #33ffeb2a; /* Cor brilhante ao passar o mouse */
+  text-shadow:
+    0 0 8px #33ffeb18,
+    0 0 18px #33ffeb2f,
+    0 0 28px #33ffeb1e; /* Sombra mais forte no hover */
+}
+
+/* Container de cards com grid responsivo */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 25px 50px;
+  margin: auto;
+}
+
+/* Estilo base dos cards */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Brilho animado girando no fundo */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at center, #00000000, #ff1b1b00, #00000000);
+  animation: spin 5s linear infinite;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hover nos cards */
+.card:hover {
+  transform: translateY(-10px) scale(1.02) rotateX(3deg);
+  box-shadow: 0 0 25px #00ffe1aa, 0 0 60px #5c00ff77;
+}
+
+.card.present:hover {
+  background-color: rgba(35, 158, 59, 0.664);
+}
+.card.absent:hover {
+  background-color: rgba(224, 13, 13, 0.473);
+}
+.card.sunday:hover {
+  background-color: rgba(216, 219, 18, 0.664);
+}
+
+/* Cabeçalho de cada dia */
+.day-header {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffffcc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px #00ffe1;
+}
+
+.fa-icon {
+  font-size: 1.2em;
+}
+
+/* Informações de horário */
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05em;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  color: #e1e1e1;
+}
+
+.time-info:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ffcc88;
+}
+
+.time-info i {
+  color: #00ffe1;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Cores laterais por tipo de dia */
+.card.present { border-left: 5px solid rgb(0, 255, 51); }
+.card.absent { border-left: 5px solid rgb(255, 0, 0); }
+.card.sunday { border-left: 5px solid #ffee00; }
+
+/* Tooltip de exemplo (se quiser usar) */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  transform: translateY(-100%);
+  background: #000a;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85em;
+  transition: opacity 0.4s;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.card:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Contador de partículas no canto da tela */
+.count-particles {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 8px 8px;
+  background: #00002200;
+  color: #13E8E9;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: monospace;
+  z-index: 10;
+}
+
+#pieChart {
+  margin: 30px auto;
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Keyframes da animação bounce para o ícone */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Customização da barra de rolagem para navegadores WebKit */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #00ffccaa;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #00ffccee;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 400px) {
+  .day-header {
+    font-size: 1.3em;
+  }
+  .time-info {
+    font-size: 1em;
+    padding: 12px 14px;
+  }
+}
+
+/* ====== Botões de filtro estilizados ====== */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.filter-buttons button {
+  position: relative;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #3a9cff, #1a61d9);
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.25s ease;
+  box-shadow: 0 6px 15px rgba(58, 156, 255, 0.4);
+  user-select: none;
+}
+
+.filter-buttons button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.filter-buttons button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.filter-buttons button:hover {
+  background: linear-gradient(135deg, #1a61d9, #1449a3);
+  box-shadow: 0 8px 22px rgba(26, 97, 217, 0.65);
+  transform: scale(1.08);
+  z-index: 1;
+}
+
+.filter-buttons button:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(26, 97, 217, 0.5);
+}
+
+.filter-buttons button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(58, 156, 255, 0.7);
+  z-index: 2;
+}

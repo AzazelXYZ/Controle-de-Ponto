@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle de Ponto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- stats.js CDN (opcional) -->
+  <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+  <!-- Contador de partículas -->
+  <div class="count-particles"><span class="js-count-particles">--</span> partículas</div>
+
+  <!-- Fundo com partículas -->
+  <div id="particles-js"></div>
+  
+<div class="filter-buttons">
+  <button onclick="filterCards('all')">Todos</button>
+  <button onclick="filterCards('present')">Presentes</button>
+  <button onclick="filterCards('absent')">Faltas</button>
+  <button onclick="filterCards('sunday')">Folgas/Domingos</button>
+</div>
+
+<div id="summary"></div>
+
+  <!-- Título -->
+  <h1>Controle de Ponto - Erick Vessoli</h1>
+
+  <!-- Cards -->
+  <div class="container">
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Segunda - 26/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Terça - 27/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Quarta - 28/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Quinta - 29/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Sexta - 30/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Sábado - 31/05</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card sunday">
+      <div class="day-header"><i class="fa-solid fa-sun fa-icon"></i> ⤷ Domingo - 01/06</div>
+      <div class="time-info">Nenhuma informação</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Segunda - 02/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Terça - 03/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card absent">
+      <div class="day-header"><i class="fa-solid fa-user-doctor fa-icon"></i> ⤷ Quarta - 04/06</div>
+      <div class="time-info">Faltou (com declaração médica)</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Quinta - 05/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Sexta - 06/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Sábado - 07/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card sunday">
+      <div class="day-header"><i class="fa-solid fa-sun fa-icon"></i> ⤷ Domingo - 08/06</div>
+      <div class="time-info">Nenhuma informação</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Segunda - 09/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Terça - 10/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Quarta - 11/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Quinta - 12/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+
+    <div class="card present">
+      <div class="day-header"><i class="fa-solid fa-calendar-check fa-icon"></i> ⤷ Sexta - 13/06</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrada: 08:00</div>
+      <div class="time-info"><i class="fa-solid fa-utensils"></i> Almoço: 11:30 → 13:30</div>
+      <div class="time-info"><i class="fa-solid fa-arrow-right-from-bracket"></i> Saída: 18:00</div>
+    </div>
+  </div>
+
+  <div style="width: 300px; margin-top: 60px; margin-left: auto; margin-right: auto;">
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <!-- Script separado -->
+  <script src="script.js"></script>
+</body>
+</html>
