@@ -173,7 +173,7 @@ requestAnimationFrame(update);
       data: {
         labels: ['Presenças', 'Faltas', 'Domingos'],
         datasets: [{
-          data: [17, 1, 2],
+          data: [18, 1, 3],
           backgroundColor: ['#4caf50', '#f44336', '#ff9800'],
           borderColor: '#fff',
           borderWidth: 2
