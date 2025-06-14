@@ -58,7 +58,9 @@ controle-de-ponto/
 
 ## 📸 Prévia do Projeto
 
-> ![image](https://github.com/user-attachments/assets/540393b4-a910-46f9-b13a-716f95fbfab8)
+> ![image](https://github.com/user-attachments/assets/5102fcc9-08b3-4126-9bc8-d4b3ee625903)
+
+
 
 
 ---
